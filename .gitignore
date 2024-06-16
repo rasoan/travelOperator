@@ -56,3 +56,6 @@ npm-debug.log
 config.json
 test_*
 dist/
+
+.editorconfig
+.npmrc
