@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  mongo_db:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: travelOperator
+    environment:
+      PORT: 3000
+      DB_URI: 'mongodb://mongo:27017/docker-node-mongo'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      - mongo_db
+
+
+
