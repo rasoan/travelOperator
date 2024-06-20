@@ -59,3 +59,4 @@ dist/
 
 .editorconfig
 .npmrc
+backend/db_data/
