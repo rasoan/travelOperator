@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "start": "cd backend && docker-compose up && cd ../ && pnpm run logs",
-    "logs": "cd backend && docker compose logs -f app && cd ../",
-    "delete:ci": "cd backend && docker rm $(docker ps -qa) -f && docker rmi $(docker images -a -q) -f && cd ../",
+    "start": "docker compose up && pnpm run logs",
+    "logs": "docker compose logs -f app",
+    "delete:ci": "docker rm $(docker ps -qa) -f && docker rmi $(docker images -a -q) -f",
+    "delete:c": "docker rm $(docker ps -qa) -f",
+    "delete:i": "docker rmi $(docker images -a -q) -f",
     "restart": "pnpm run delete:ci && pnpm run start"
   }
 }
