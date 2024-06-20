@@ -10,7 +10,7 @@ import { Model } from 'mongoose';
 export class HotelsService {
     constructor(@InjectModel(Hotel.name) private hotelModel: Model<Hotel>) {}
 
-    getHotelsList() {
+    public async getHotelsList() {
         return this.hotelModel.find();
     }
 
