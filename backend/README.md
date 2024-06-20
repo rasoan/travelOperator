@@ -58,9 +58,9 @@ The command looks for the services specified in the `docker-compose.yml` file
 and creates containers for them. If the images required by those services 
 are unavailable locally, Docker will pull them from Docker Hub or any other 
 configured registry. If the images are already available locally, 
-Docker will use them instead of pulling them again.
+Docker will use them instead of pulling them again (you can add flag "-d" for not show console").
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 - Delete all images
@@ -71,6 +71,11 @@ docker rmi $(docker images -a -q) -f
 - Delete all containers
 ```bash
 docker rm $(docker ps -qa) -f
+```
+
+- Delete all containers and images
+```bash
+docker rm $(docker ps -qa) -f && docker rmi $(docker images -a -q) -f
 ```
 
 Список пройденного материала по Docker:

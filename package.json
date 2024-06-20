@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "cd backend && docker-compose up -d && cd ../ && pnpm run logs",
+    "logs": "cd backend && docker compose logs -f app && cd ../",
+    "delete:ci": "cd backend && docker rm $(docker ps -qa) -f && docker rmi $(docker images -a -q) -f && cd ../",
+    "restart": "pnpm run delete:ci && pnpm run start"
+  }
+}

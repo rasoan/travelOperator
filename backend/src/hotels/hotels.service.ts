@@ -8,16 +8,16 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class HotelsService {
-  constructor(@InjectModel(Hotel.name) private hotelModel: Model<Hotel>) {}
+    constructor(@InjectModel(Hotel.name) private hotelModel: Model<Hotel>) {}
 
-  getHotelsList() {
-    return this.hotelModel.find();
-  }
+    getHotelsList() {
+        return this.hotelModel.find();
+    }
 
-  public async addHotel(addHotelDto: CreateHotelDTO) {
-    const newHotel = new this.hotelModel(addHotelDto);
-    const savedNewHotel = await newHotel.save();
+    public async addHotel(addHotelDto: CreateHotelDTO) {
+        const newHotel = new this.hotelModel(addHotelDto);
+        const savedNewHotel = await newHotel.save();
 
-    return `added hotel ${JSON.stringify(savedNewHotel)}!`;
-  }
+        return `added hotel ${JSON.stringify(savedNewHotel)}!`;
+    }
 }
