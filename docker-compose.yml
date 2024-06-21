@@ -14,13 +14,21 @@ services:
   app:
     build: ./backend
     container_name: travelOperator
+    command: sh -c "pnpm run start"
+    develop:
+      watch:
+        - action: sync
+          path: ./backend/src
+          target: ./traveloperator/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./backend/package.json
     environment:
       PORT: 3000
       DB_URI: 'mongodb://mongo:27017/travelOperator'
     ports:
       - '3000:3000'
-    volumes:
-      - ./backend/src:/app/src
     depends_on:
       - mongo_db
 

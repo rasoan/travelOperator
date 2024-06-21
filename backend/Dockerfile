@@ -12,6 +12,3 @@ RUN pnpm install
 
 # define the port number the container should expose
 EXPOSE 8080
-
-# run the command
-CMD [ "pnpm", "run", "start" ]

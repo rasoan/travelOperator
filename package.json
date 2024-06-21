@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "docker compose up && pnpm run logs",
+    "start": "docker compose up --watch",
     "logs": "docker compose logs -f app",
     "delete:ci": "docker rm $(docker ps -qa) -f && docker rmi $(docker images -a -q) -f",
     "delete:c": "docker rm $(docker ps -qa) -f",
